@@ -1,0 +1,7 @@
+Thu, 12 May 2011 07:56:24 -0700
+lib/s3aps/file_adapter.rb	Wed, 11 May 2011 18:28:37 -0700
+lib/s3aps/runner.rb	Wed, 11 May 2011 19:09:39 -0700
+lib/s3aps/s3_adapter.rb	Wed, 11 May 2011 22:35:12 -0700
+lib/s3aps/sync.rb	Thu, 12 May 2011 07:48:13 -0700
+lib/s3aps/version.rb	Thu, 12 May 2011 07:49:52 -0700
+lib/s3aps.rb	Wed, 11 May 2011 17:40:32 -0700

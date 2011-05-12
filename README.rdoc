@@ -1,0 +1,105 @@
+= s3aps
+
+The "s3" bit of the name refers to Amazon's {S3}[http://aws.amazon.com/s3/] 
+(simple storage service). The "aps" bit of the name is a reference to the 
+{taps}[https://github.com/ricardochimal/taps] gem that inspired this gem. Taps will 
+push and pull data between remote and local databases. S3aps will push and pull files between S3 
+and the filesystem.
+
+== Usage
+
+List the files in an S3 bucket and on filesystem
+
+  s3aps list
+
+Copy files from S3 to filesystem
+
+  s3aps pull
+
+Copy files from filesystem to S3
+
+  s3aps push
+
+== S3 Credentials
+
+You can provide your S3 credentials either on the command line or in a YAML file. By default, S3aps
+will look for a file called <tt>s3.yml</tt> in the current directory and then in a sub-directory called +config+.
+If your YAML is somewhere else then use the <tt>--config</tt> option:
+
+  s3aps list --config my_s3.yml
+
+It looks for the following values:
+
+* bucket
+* key (aliased as access_key_id)
+* secret (aliased as secret_access_key)
+
+The YAML file might look like this:
+
+  bucket: foo
+  key: 01234567890123456789
+  secret: abcdefabcdefabcdef
+
+If your YAML file is separated into environments then you'll need to tell it which one you're interested 
+in:
+
+  s3aps list --config my_s3.yml --env production
+
+In which case, the YAML file might look like this:
+
+  staging:
+    bucket: foo.staging
+    key: 01234567890123456789
+    secret: abcdefabcdefabcdef
+  production:
+    bucket: foo.production
+    key: 01234567890123456780
+    secret: abcdefabcdefabcdef
+
+You can also define (or override) the credentials on the command line:
+
+  s3aps list --bucket foo --key 01234567890123456789 --secret abcdefabcdefabcdef
+
+== Synchronizing two S3 buckets
+
+You can do this by pulling the files to the filesystem and then pushing them to a new
+bucket. For instance, if you have two environments setup in <tt>s3.yml</tt>, you might do this:
+
+  s3aps pull --env production
+  s3aps push --env staging
+
+== SSL
+
+S3aps uses the http protocol on port 80. This is not configurable.
+
+== Sloppy Sync
+
+This early version is satisfied that two files are synchronized if the file exists locally and remotely. 
+That works for what I need it for right now. I don't change files, just add new ones. However, I'd like 
+to add an MD5 check too. I'd make that an option rather than the default because it makes it more time 
+consuming.
+
+It doesn't attempt to delete files that shouldn't be there. That would be useful and I am considering
+adding a <tt>--delete</tt> option to do that. It's also a little scary.
+
+== Hand Holding
+
+It's quite easy to write stuff to production. We should seek confirmation, like Taps does. Fortunately, 
+that risk is mitigated a little by not having a delete feature. I guess we should make it a bit more
+cautious when we do have delete.
+
+== Performance
+
+I only use this on a smallish bucket. Only a few thousand files and none more than a couple of Mb in 
+size. It works very well in that situation. It does some non-scalable things like put a list of
+all the local and remote files in a couple of arrays so that it can quickly see what is different. At 
+some point that is going to be a problem if you are dealing with lots of files.
+
+Similarly, it copies the file by reading the whole lot and then writing it out again. That won't work
+very well if you have files that are, say, 1Gb in size. 
+
+== Meta
+
+Written and maintained by {Bill Horsman}[http://bill.logicalcobwebs.com]. Hat tip to {Ricardo Chimal, Jr}[http://github.com/ricardochimal] for inspiration with {Taps}[https://github.com/ricardochimal/taps]. Thanks to Mikel Lindsaar's RailsConf 2010 talk for encouragement to contribute.
+
+Released under the {MIT License}[http://www.opensource.org/licenses/mit-license.php]

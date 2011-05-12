@@ -1,0 +1,6 @@
+s3.yml
+tmp
+.rvmrc
+pkg/*
+*.gem
+.bundle

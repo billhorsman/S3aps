@@ -1,0 +1,5 @@
+require "s3aps/runner"
+require "s3aps/file_adapter"
+require "s3aps/s3_adapter"
+require "s3aps/sync"
+require "s3aps/version"

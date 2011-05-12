@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: S3aps::S3Adapter</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../lib/s3aps/s3_adapter_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/s3aps/s3_adapter.rb">lib/s3aps/s3_adapter.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">Object</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-new">::new</a></li>
+					
+					<li><a href="#method-i-list">#list</a></li>
+					
+					<li><a href="#method-i-read">#read</a></li>
+					
+					<li><a href="#method-i-write">#write</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../S3aps/FileAdapter.html">S3aps::FileAdapter</a></li>
+				
+					<li><a href="../S3aps/Runner.html">S3aps::Runner</a></li>
+				
+					<li><a href="../S3aps/S3Adapter.html">S3aps::S3Adapter</a></li>
+				
+					<li><a href="../S3aps/Sync.html">S3aps::Sync</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">S3aps::S3Adapter</h1>
+
+		<div id="description">
+			<p>
+Reads, writes and lists files on S3.
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="method-c-new"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(options)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/s3aps/s3_adapter.rb, line 9</span>
+ 9:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">options</span>)
+10:       <span class="ruby-ivar">@s3</span> = <span class="ruby-constant">RightAws</span><span class="ruby-operator">::</span><span class="ruby-constant">S3Interface</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:key</span>], <span class="ruby-identifier">options</span>[<span class="ruby-value">:secret</span>], <span class="ruby-value">:protocol</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'http'</span>, <span class="ruby-value">:port</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">80</span>)
+11:       <span class="ruby-ivar">@bucket_name</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:bucket</span>]
+12:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="list-method" class="method-detail ">
+				<a name="method-i-list"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">list</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+List the keys of all files in the bucket
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="list-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/s3aps/s3_adapter.rb, line 15</span>
+15:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">list</span>
+16:       <span class="ruby-identifier">keys</span> = []
+17:       <span class="ruby-ivar">@s3</span>.<span class="ruby-identifier">incrementally_list_bucket</span>(<span class="ruby-ivar">@bucket_name</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">key_set</span><span class="ruby-operator">|</span>
+18:         <span class="ruby-identifier">keys</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">key_set</span>[<span class="ruby-value">:contents</span>].<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+19:           <span class="ruby-identifier">key</span>
+20:         }
+21:       }
+22:       <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">flatten</span>
+23:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="read-method" class="method-detail ">
+				<a name="method-i-read"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">read</span><span
+						class="method-args">(key)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="read-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/s3aps/s3_adapter.rb, line 30</span>
+30:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">read</span>(<span class="ruby-identifier">key</span>)
+31:       <span class="ruby-keyword kw">begin</span>
+32:         <span class="ruby-ivar">@s3</span>.<span class="ruby-identifier">get_object</span>(<span class="ruby-ivar">@bucket_name</span>, <span class="ruby-identifier">key</span>)
+33:       <span class="ruby-keyword kw">rescue</span> 
+34:         <span class="ruby-identifier">raise</span> <span class="ruby-identifier">exc</span>
+35:       <span class="ruby-keyword kw">end</span>
+36:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="write-method" class="method-detail ">
+				<a name="method-i-write"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">write</span><span
+						class="method-args">(s3_name, value)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Write a value, potentially overwriting what is already there.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="write-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/s3aps/s3_adapter.rb, line 26</span>
+26:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">write</span>(<span class="ruby-identifier">s3_name</span>, <span class="ruby-identifier">value</span>)
+27:       <span class="ruby-ivar">@s3</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@bucket_name</span>, <span class="ruby-identifier">s3_name</span>, <span class="ruby-identifier">value</span>)
+28:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+
