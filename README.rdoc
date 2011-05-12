@@ -100,6 +100,6 @@ very well if you have files that are, say, 1Gb in size.
 
 == Meta
 
-Written and maintained by {Bill Horsman}[http://bill.logicalcobwebs.com]. Hat tip to {Ricardo Chimal, Jr}[http://github.com/ricardochimal] for inspiration with {Taps}[https://github.com/ricardochimal/taps]. Thanks to Mikel Lindsaar's RailsConf 2010 talk for encouragement to contribute.
+Written and maintained by {Bill Horsman}[http://bill.logicalcobwebs.com]. Hat tip to {Ricardo Chimal, Jr}[http://github.com/ricardochimal] for inspiration with {Taps}[https://github.com/ricardochimal/taps]. Thanks to {Mikel Lindsaar's}[https://github.com/mikel] RailsConf 2010 talk, {Itch Scratching the ActionMailer API}[http://en.oreilly.com/rails2010/public/schedule/detail/14225], for encouragement to contribute.
 
 Released under the {MIT License}[http://www.opensource.org/licenses/mit-license.php]
